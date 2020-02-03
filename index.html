@@ -5,57 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Progressive web app</title>
+    <title>Meme Monk</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Merriweather|Montserrat|Roboto+Slab&display=swap" rel="stylesheet">
 
 </head>
 
 <style>
     img {
         width: 80%;
+        margin-bottom: 30px;
     }
+
     #content {
         text-align: center;
         margin-top: 20px;
     }
 
     button {
-        margin: 15px;
+        margin: 20px;
+        font-size: 20px !important;
     }
+    .title {
+        color: #9AE9C8;
+        font-size: 50px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 30px;
+    }
+
 </style>
 
-<body onload="main()">
-    <div class="center">
+<body>
+    <div class="center" style="height: 100vh;">
         <div class="mobile">
             <div id="content">
-                <img id="image" src="" alt="">
-                <button onclick="main()">Another One</button>
+                <h1 class="title"><b>Meme<br><del>Monk?</del></br></h1>
+                <img id="randomImage" class="shadow rounded" />
+                <button class="btn btn-outline-light" onclick="displayRandomImage()"> สาธุ </button>
             </div>
 
         </div>
     </div>
+
+
     <script>
-        function main() {
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Typical action to be performed when the document is ready:
-                    let response = xhttp.responseText;
-                    console.log("ok" + response);
-                    let data = JSON.parse(response)
-                    console.log(data)
-                    render(data);
-                }
-            };
-            xhttp.open("GET", "https://meme-api.herokuapp.com/gimme", true);
 
-            xhttp.send();
+        function getRandomImage() {
+            var images = ['./pic/meme1.jpeg', './pic/meme2.jpeg', './pic/meme3.jpeg', './pic/meme4.jpeg', './pic/meme5.jpeg',
+            './pic/meme6.jpeg', './pic/meme7.jpeg', './pic/meme8.jpeg', './pic/meme9.jpg', './pic/meme14.jpg', './pic/meme11.jpg',
+            './pic/meme15.jpg', './pic/meme16.jpg', './pic/meme18.jpg', './pic/meme19.jpg', './pic/meme20.jpg',
+            './pic/meme10.jpeg', './pic/meme13.jpeg', './pic/meme17.jpeg', './pic/meme21.jpg', './pic/meme24.jpg', './pic/meme25.jpg',
+            './pic/meme27.jpg', './pic/meme32.jpg', './pic/meme33.jpg', './pic/meme34.jpg' ,'./pic/meme35.jpg', './pic/meme28.jpeg',
+            './pic/meme29.jpeg', './pic/meme30.jpeg', './pic/meme31.jpeg', './pic/meme36.jpg', './pic/meme37.jpg', './pic/meme51.jpg',
+            './pic/meme38.JPG', './pic/meme39.JPG', './pic/meme40.JPG', './pic/meme42.JPG', './pic/meme43.JPG', './pic/meme44.JPG', './pic/meme48.JPG',
+            './pic/meme50.JPG', './pic/meme52.JPG', './pic/meme53.JPG', './pic/meme55.JPG', './pic/meme56.JPG', './pic/meme57.JPG', './pic/meme58.JPG',
+            './pic/meme59.JPG', './pic/meme60.JPG', './pic/meme61.JPG', './pic/meme62.JPG'];
+            var image = images[Math.floor(Math.random() * images.length)];
+
+            return image;
         }
 
-        function render(data) {
-            document.getElementById("image").setAttribute("src", data.url);
+        function displayRandomImage() {
+            var htmlImage = document.getElementById("randomImage");
+            htmlImage.src = getRandomImage();
         }
 
+        displayRandomImage();
+
+        // function main() {
+        //     let xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function () {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             // Typical action to be performed when the document is ready:
+        //             let response = xhttp.responseText;
+        //             console.log("ok" + response);
+        //             let data = JSON.parse(response)
+        //             console.log(data)
+        //             render(data);
+        //         }
+        //     };
+        //     xhttp.open("GET", "https://meme-api.herokuapp.com/gimme", true);
+
+        //     xhttp.send();
+        // }
+
+        // function render(data) {
+        //     document.getElementById("image").setAttribute("src", data.url);
+        // }
     </script>
 </body>
 
