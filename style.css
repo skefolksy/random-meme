@@ -4,6 +4,7 @@ body {
 }
 .mobile {
     width: 414px;
+    height: 736px;
     background-color: #3C3B4E;
     align-items: center;
     padding: 20px;
