@@ -1,10 +1,13 @@
 body {
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 .mobile {
-    width: 320px;
+    width: 414px;
     background-color: #3C3B4E;
     align-items: center;
+    padding: 20px;
+    /* position: relative; */
 }
 
 .center {
