@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+.mobile {
+    width: 320px;
+    background-color: #C6AFB1;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.thebutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
